@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "chatty-1f77a": {
+      "hosting": {
+        "chatty": [
+          "chatty-1f77a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "chatty-1f77a"
+  }
+}
