@@ -10,5 +10,10 @@ export const environment = {
     messagingSenderId: '29830916830',
     measurementId: 'G-QNTDM5CRHE',
   },
-    
+
 };
+
+export const actionCodeSettings = {
+    url: 'http://10.0.0.2:4200/',
+    handleCodeInApp: true
+  }

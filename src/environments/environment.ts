@@ -9,4 +9,10 @@ export const environment = {
     authDomain: 'chatty-1f77a.firebaseapp.com',
     messagingSenderId: '29830916830',
     measurementId: 'G-QNTDM5CRHE',
-  },};
+  },
+};
+
+export const actionCodeSettings = {
+  url: 'https://chatty-1f77a.firebaseapp.com/?email-verified',
+  handleCodeInApp: true
+}

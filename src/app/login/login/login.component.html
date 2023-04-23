@@ -1,0 +1,70 @@
+<div class="container">
+    <div style="margin-bottom: 8px;">
+        <span>Register New Account</span>
+        <mat-slide-toggle [(ngModel)]="isRegister" color="primary" (change)="setLoginForm()">
+        </mat-slide-toggle>
+    </div>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Login/Register</mat-card-title>
+        </mat-card-header>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+            <mat-card-content>
+                <div class="form-switch">
+                </div>
+
+                <mat-form-field appearance="outline" *ngIf="isRegister">
+                    <mat-label>User Name</mat-label>
+                    <input matInput [formControl]="userName" inputmode="text" />
+                    <mat-error *ngIf="(userName.dirty || userName.touched) && userName.errors">
+                        <span *ngIf="userName.errors['required']">User Name is required</span>
+                        <span *ngIf="userName.errors['maxlength']">Please use a maximum of 22 characters</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput [formControl]="email" inputmode="email" autocomplete="email" />
+                    <mat-error *ngIf="(email.dirty || email.touched) && email.errors">
+                        <span *ngIf="email.errors['required']">Email is required</span>
+                        <span *ngIf="email.errors['email']">Must be a valid Email</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput [formControl]="password" inputmode="password" (change)="checkPasswordMatch()" />
+                    <mat-error *ngIf="(password.dirty || password.touched) && password.errors">
+                        <span *ngIf="password.errors['required']">Password is required</span>
+                        <span *ngIf="password.errors['minlength']">Password must be a minimum of 6 characters
+                            long</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" *ngIf="isRegister">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput [formControl]="confirmPass" inputmode="password" (change)="checkPasswordMatch()" />
+                    <mat-error *ngIf="(confirmPass.dirty || confirmPass.touched) && confirmPass.errors">
+                        <span *ngIf="confirmPass.errors['required']">Confirm Password is required</span>
+                        <span *ngIf="isRegister && confirmPass.errors['notMatch']">Password does not match</span>
+                    </mat-error>
+                </mat-form-field>
+            </mat-card-content>
+
+            <mat-card-actions>
+                <button mat-raised-button *ngIf="!isRegister" [disabled]="!loginForm.valid" color="primary"
+                    type="submit">
+                    Login
+                </button>
+                <button mat-raised-button *ngIf="isRegister" [disabled]="!loginForm.valid" color="primary"
+                    type="submit">
+                    Register
+                </button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+    <mat-card>
+        <button mat-raised-button color="primary" (click)="onLoginWithGoogle()">Or login with Google</button>
+    </mat-card>
+</div>

@@ -1,0 +1,47 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    height: 100vh;
+    background-color: #EFF1F3;
+  }
+  
+  mat-card {
+    margin-bottom: 12px;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  mat-card-header {
+    display: flex;
+    justify-content: center;
+  }
+  
+  mat-card-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .form-switch {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  span {
+    margin-right: 8px;
+  }
